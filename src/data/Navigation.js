@@ -26,7 +26,17 @@ export const TABS = {
         },
         {
           name: "products",
-          link: "/admin/teams",
+          link: "/user/products",
+          icon: <BsPeopleFill className={iconStyle} />,
+        },
+        {
+          name: "order",
+          link: "/user/order",
+          icon: <BsPeopleFill className={iconStyle} />,
+        },
+        {
+          name: "my order",
+          link: "/user/myorder",
           icon: <BsPeopleFill className={iconStyle} />,
         },
       ],

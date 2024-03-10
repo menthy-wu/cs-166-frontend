@@ -14,7 +14,9 @@ const Search = ({
   classes,
 }) => {
   return (
-    <div className={`flex items-center ${classes}`}>
+    <div
+      className={`flex items-center bg-white rounded-lg drop-shadow-lg ${classes}`}
+    >
       {showLabel && <p className="text-lg font-extrabold mr-2 my-0">{label}</p>}
 
       <div className="flex items-center my-1 bg-hackathon-gray-100 rounded-md w-full">

@@ -14,7 +14,7 @@ export default function RootLayout({ children, session }) {
   return (
     <html lang="en" className="h-full w-full">
       <body
-        className={`${poppins.variable} flex flex-col lg:flex-row h-full w-full`}
+        className={`${poppins.variable} flex flex-col lg:flex-row h-full w-full bg-gray-100`}
       >
         <div className="flex w-full">
           <Toaster />

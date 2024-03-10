@@ -7,9 +7,7 @@ import Fault from "@/util/error.js";
 
 const Page = ({ params }) => {
   const components = {
-    store: { something: "" },
-    products: { something: "" },
-    myorder: { something: "" },
+    users: { something: "" },
   };
   console.log(ACTIONS[params.type].action);
 

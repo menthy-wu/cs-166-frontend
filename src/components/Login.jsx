@@ -13,7 +13,8 @@ const Login = () => {
   });
   const router = useRouter();
   const login = () => {
-    router.push("/store");
+    console.log("user");
+    router.push("/user/store");
   };
   return (
     <div className="flex w-full h-full bg-gradient-to-r from-tm-purple to-tm-blue items-center justify-around">

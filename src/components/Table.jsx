@@ -21,20 +21,18 @@ const Table = ({
   Dropdown,
   empty,
   loading,
+  action,
+  actionText,
 }) => {
   return (
     <>
-      <div className="bg-white h-[75vh] overflow-y-scroll flex flex-col justify-between rounded-lg drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]">
+      <div className="bg-white h-[85vh] overflow-y-scroll flex flex-col justify-between rounded-lg drop-shadow-[20px_15px_35px_rgba(0,0,0,0.25)]">
         <div>
-          <div className="text-white bg-gradient-to-r from-tm-purple to-tm-blue rounded-t-lg">
+          <div className="text-white bg-gradient-to-r from-tm-purple to-tm-blue rounded-t-lg flex justify-between">
             {getHeaderGroups().map(({ headers, id }) => (
-              <div key={id} className="flex items-center px-3 py-2">
+              <div key={id} className="flex items-center px-3 py-2 w-full">
                 {headers.map(({ id, column, getContext }) => (
-                  <div
-                    key={id}
-                    className={`${column.columnDef.width} flex items-center`}
-                    data-cy="header"
-                  >
+                  <div key={id} className={`flex items-center w-1/6`}>
                     {flexRender(column.columnDef.header, getContext())}
                     {column.getCanSort() && (
                       <FaArrowRightArrowLeft
@@ -80,6 +78,8 @@ const Table = ({
                       getVisibleCells={getVisibleCells}
                       Dropdown={Dropdown}
                       original={original}
+                      action={action}
+                      actionText={actionText}
                     />
                   )
                 )}
@@ -87,26 +87,26 @@ const Table = ({
             )}
           </>
         </div>
-      </div>
-      <div className="flex justify-end items-center p-4 text-lg bg-white w-full rounded-b-lg">
-        <div className="mx-2">{getRowModel().rows.length} row(s)</div>
-        <button
-          onClick={() => previousPage()}
-          disabled={!getCanPreviousPage()}
-          className="mx-2 disabled:text-hackathon-gray-200"
-        >
-          <FaChevronLeft />
-        </button>
-        <div>
-          Page {getState().pagination.pageIndex + 1} of {getPageCount()}
+        <div className="flex justify-end items-center p-4 text-lg bg-white w-full rounded-b-lg">
+          <div className="mx-2">{getRowModel().rows.length} row(s)</div>
+          <button
+            onClick={() => previousPage()}
+            disabled={!getCanPreviousPage()}
+            className="mx-2 disabled:text-hackathon-gray-200"
+          >
+            <FaChevronLeft />
+          </button>
+          <div>
+            Page {getState().pagination.pageIndex + 1} of {getPageCount()}
+          </div>
+          <button
+            onClick={() => nextPage()}
+            disabled={!getCanNextPage()}
+            className="mx-2 disabled:text-hackathon-gray-200"
+          >
+            <FaChevronRight />
+          </button>
         </div>
-        <button
-          onClick={() => nextPage()}
-          disabled={!getCanNextPage()}
-          className="mx-2 disabled:text-hackathon-gray-200"
-        >
-          <FaChevronRight />
-        </button>
       </div>
     </>
   );

@@ -19,11 +19,13 @@ const Dashboard = ({
   statuses,
   Dropdown,
   empty,
+  action,
+  actionText,
 }) => {
   const [data, setData] = useState([]);
   const [selected, setSelected] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [filters, setFilters] = useState([{ id: "status", value: [-1, 0, 1] }]);
+  const [filters, setFilters] = useState([]);
 
   const {
     getHeaderGroups,
@@ -47,17 +49,17 @@ const Dashboard = ({
     enableRowSelection: true,
     state: {
       rowSelection: selected,
-      // columnFilters: filters,
+      columnFilters: filters,
     },
   });
 
   return (
-    <div className="flex items-center justify-center w-full h-full">
+    <div className="flex items-center justify-center w-full h-full ">
       <title>{title}</title>
       <Navigation />
-      <div className="w-full flex justify-center items-start bg-hackathon-page h-screen py-12 lg:py-0 z-0 overflow-x-hidden">
+      <div className="w-full flex justify-center items-start bg-hackathon-page h-screen py-12 lg:py-0 z-0 px-4">
         <div className="w-full">
-          <div className="flex items-center my-2 text-4xl font-bold">
+          <div className="flex items-center my-2 text-4xl font-bold bg-gradient-to-r from-tm-purple to-blue-400 bg-clip-text text-transparent w-fit">
             {title}
           </div>
           <Toolbar
@@ -83,6 +85,8 @@ const Dashboard = ({
             Dropdown={Dropdown}
             empty={empty}
             loading={loading}
+            action={action}
+            actionText={actionText}
           />
         </div>
       </div>

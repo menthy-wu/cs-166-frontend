@@ -32,7 +32,16 @@ const Toolbar = ({
   });
 
   const handleReload = async () => {
-    setData([]);
+    setData([
+      {
+        storeID: "1234",
+        name: "hihi",
+        latitude: 2,
+        longitude: 4,
+        manager: "1234wf",
+        dateEstablished: "2024-5-6",
+      },
+    ]);
     // api({
     //   method: "GET",
     //   url: `/api/dashboard/${page}`,

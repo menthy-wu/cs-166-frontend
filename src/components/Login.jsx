@@ -4,17 +4,32 @@ import logo from "../../public/logo.svg";
 import Input from "./Input";
 import Button from "./Button";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useRouter } from "next/navigation";
+import UserContext from "./UserContext";
+import toast from "react-hot-toast";
+
 const Login = () => {
-  const [user, setUser] = useState({
-    username: "",
-    password: "",
-  });
+  const { user, setUser } = useContext(UserContext);
   const router = useRouter();
   const login = () => {
-    console.log("user");
-    router.push("/user/store");
+    fetch("/api/login", {
+      method: "POST",
+      body: JSON.stringify({
+        name: user.name,
+        password: user.password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((res) => {
+        console.log(res.message);
+        if (res.message) {
+          setUser(res.message);
+          router.push("/store");
+        } else {
+          toast("❌ Invalid username or password");
+        }
+      });
   };
   return (
     <div className="flex w-full h-full bg-gradient-to-r from-tm-purple to-tm-blue items-center justify-around">
@@ -28,11 +43,11 @@ const Login = () => {
           <div className="text-base text-tm-gray">Theo & Menthy Inst. </div>
         </div>
         <Input
-          name="username"
+          name="name"
           type="text"
-          title="username"
-          placeholder="username"
-          value={user.username}
+          title="name"
+          placeholder="name"
+          value={user.name}
           user={user}
           setUser={setUser}
           maxLength={100}

@@ -1,6 +1,9 @@
 /* eslint-disable new-cap */
+"use client";
+import UserContext from "@/components/UserContext";
 import "./globals.css";
 import { Poppins } from "next/font/google";
+import { useContext, useState } from "react";
 import { Toaster } from "react-hot-toast";
 
 const poppins = Poppins({
@@ -11,15 +14,24 @@ const poppins = Poppins({
 });
 
 export default function RootLayout({ children, session }) {
+  const [user, setUser] = useState({
+    name: "",
+    password: "",
+    latitude: "",
+    longitude: "",
+  });
+
   return (
     <html lang="en" className="h-full w-full">
       <body
         className={`${poppins.variable} flex flex-col lg:flex-row h-full w-full bg-gray-100`}
       >
-        <div className="flex w-full">
-          <Toaster />
-          {children}
-        </div>
+        <UserContext.Provider value={{ user, setUser }}>
+          <div className="flex w-full">
+            <Toaster />
+            {children}
+          </div>
+        </UserContext.Provider>
       </body>
     </html>
   );

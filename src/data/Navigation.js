@@ -1,84 +1,98 @@
-import {
-  BsFillPersonFill,
-  BsPeopleFill,
-  BsBarChartFill,
-  BsGlobe2,
-  BsBoxArrowInRight,
-} from "react-icons/bs";
-import { MdFeedback } from "react-icons/md";
-import { AiOutlineQrcode } from "react-icons/ai";
-import { SiDevpost, SiHandshake } from "react-icons/si";
+import { BsFillPersonFill, BsPeopleFill } from "react-icons/bs";
 
 const iconStyle = "mr-2";
 const signOut = () => {};
 
-export const TABS = {
-  user: {
-    dropdown: false,
-    Dashboards: {
-      expand: true,
-      mt: "mt-0",
-      tabs: [
-        {
-          name: "store",
-          link: "/user/store",
-          icon: <BsFillPersonFill className={iconStyle} />,
-        },
-        {
-          name: "products",
-          link: "/user/products",
-          icon: <BsPeopleFill className={iconStyle} />,
-        },
-        {
-          name: "order",
-          link: "/user/order",
-          icon: <BsPeopleFill className={iconStyle} />,
-        },
-        {
-          name: "my order",
-          link: "/user/myorder",
-          icon: <BsPeopleFill className={iconStyle} />,
-        },
-      ],
-    },
-
-    " ": [
-      {
-        name: "sign out",
-        link: "/",
-        onClick: signOut,
-        icon: <BsBoxArrowInRight className={iconStyle} />,
-      },
-    ],
+export const TABS = [
+  {
+    name: "View Stores",
+    page: "store",
+    link: "/store",
+    icon: <BsFillPersonFill className={iconStyle} />,
+    type: ["customer", "manager", "admin"],
   },
-  manager: {
-    Portal: {
-      mt: "mt-0",
-      tabs: [
-        {
-          name: "dashboard",
-          link: "/user/dashboard",
-          icon: <BsFillPersonFill className={iconStyle} />,
-        },
-        {
-          name: "checkin",
-          link: "/user/checkin",
-          icon: <AiOutlineQrcode className={iconStyle} />,
-        },
-        {
-          name: "feedback",
-          link: "/form/feedback",
-          icon: <MdFeedback className={iconStyle} />,
-        },
-      ],
-    },
-    " ": [
-      {
-        name: "sign out",
-        link: "/",
-        onClick: signOut,
-        icon: <BsBoxArrowInRight className={iconStyle} />,
-      },
-    ],
+  {
+    name: "products",
+    page: "products",
+    link: "/products",
+    icon: <BsPeopleFill className={iconStyle} />,
+    type: ["customer", "manager", "admin"],
   },
-};
+  {
+    name: "Order",
+    page: "order",
+    link: "/order",
+    icon: <BsPeopleFill className={iconStyle} />,
+    type: ["customer", "manager", "admin"],
+  },
+  {
+    name: "My Order",
+    page: "myorder",
+    link: "/myorder",
+    icon: <BsPeopleFill className={iconStyle} />,
+    type: ["customer", "manager", "admin"],
+  },
+  {
+    name: "Update Product",
+    page: "update-product",
+    link: "/myorder",
+    icon: <BsPeopleFill className={iconStyle} />,
+    type: ["manager", "admin"],
+  },
+  {
+    name: "View Updates",
+    page: "view-updates",
+    link: "/myorder",
+    icon: <BsPeopleFill className={iconStyle} />,
+    type: ["manager"],
+  },
+  {
+    name: "Popular Items",
+    page: "popular-items",
+    link: "/myorder",
+    icon: <BsPeopleFill className={iconStyle} />,
+    type: ["manager"],
+  },
+  {
+    name: "Popular Customers",
+    page: "popular-customers",
+    link: "/myorder",
+    icon: <BsPeopleFill className={iconStyle} />,
+    type: ["manager"],
+  },
+  {
+    name: "Supply Request",
+    page: "supply-request",
+    link: "/myorder",
+    icon: <BsPeopleFill className={iconStyle} />,
+    type: ["manager"],
+  },
+  {
+    name: "All Orders",
+    page: "all-orders",
+    link: "/myorder",
+    icon: <BsPeopleFill className={iconStyle} />,
+    type: ["manager"],
+  },
+  {
+    name: "All Users",
+    page: "all-users",
+    link: "/myorder",
+    icon: <BsPeopleFill className={iconStyle} />,
+    type: ["admin"],
+  },
+  {
+    name: "Update Users",
+    page: "update-users",
+    link: "/myorder",
+    icon: <BsPeopleFill className={iconStyle} />,
+    type: ["admin"],
+  },
+  {
+    name: "Delete Users",
+    page: "delete-users",
+    link: "/myorder",
+    icon: <BsPeopleFill className={iconStyle} />,
+    type: ["admin"],
+  },
+];

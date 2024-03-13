@@ -31,11 +31,7 @@ const Page = ({ params }) => {
         .then((response) => response.json())
         .then((res) => {
           console.log(res.message);
-          if (res.message == "No such item") toast("❌ No such item");
-          if (res.message == "Store not in range")
-            toast("❌ Store not in range");
-          if (res.message == "Not enough units") toast("❌ Not enough units");
-          if (res.message == "Order placed") toast("✔️ Success");
+          toast(res.message);
         })
         .catch((err) => {
           console.log(err.message);
@@ -56,7 +52,7 @@ const Page = ({ params }) => {
               key={index}
               name={input}
               type="text"
-              title=""
+              title={input}
               placeholder={input}
               value={data[input]}
               user={data}

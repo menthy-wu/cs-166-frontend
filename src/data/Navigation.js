@@ -35,7 +35,7 @@ export const TABS = [
   {
     name: "Update Product",
     page: "update-product",
-    link: "/table/myorder",
+    link: "/form/update-product",
     icon: <BsPeopleFill className={iconStyle} />,
     type: ["manager", "admin"],
   },
@@ -77,14 +77,14 @@ export const TABS = [
   {
     name: "All Users",
     page: "all-users",
-    link: "/table/myorder",
+    link: "/table/all-users",
     icon: <BsPeopleFill className={iconStyle} />,
     type: ["admin"],
   },
   {
     name: "Update Users",
     page: "update-users",
-    link: "/table/myorder",
+    link: "/form/update-users",
     icon: <BsPeopleFill className={iconStyle} />,
     type: ["admin"],
   },

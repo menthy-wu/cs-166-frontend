@@ -20,7 +20,7 @@ export default function RootLayout({ children, session }) {
     password: "",
     latitude: "94.771430",
     longitude: "25.580180",
-    type: "customer",
+    type: "admin",
   });
 
   return (

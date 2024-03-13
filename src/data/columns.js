@@ -130,4 +130,41 @@ export const COLUMNS = {
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },
   ],
+  "all-users": [
+    generateSelect(),
+    {
+      accessorKey: "userid",
+      header: "userid",
+      width: " w-1/6",
+      enableColumnFilter: true,
+      filterFn: "includesString",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "name",
+      header: "name",
+      width: " w-1/6",
+      enableColumnFilter: true,
+      filterFn: "includesString",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "latitude",
+      header: "latitude",
+      width: "w-3/12",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "longitude",
+      header: "longitude",
+      width: "w-1/12",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "type",
+      header: "type",
+      width: "w-1/12",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+  ],
 };

@@ -91,7 +91,7 @@ export const TABS = [
   {
     name: "Delete Users",
     page: "delete-users",
-    link: "/table/myorder",
+    link: "/form/delete-users",
     icon: <BsPeopleFill className={iconStyle} />,
     type: ["admin"],
   },

@@ -12,4 +12,5 @@ export const INPUTS = {
     "updateLatitude",
     "updateLongitude",
   ],
+  "delete-users": ["deleteUserid"],
 };

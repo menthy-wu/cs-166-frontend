@@ -92,7 +92,7 @@ const Dashboard = ({ title, columns, page, tags, Dropdown, empty }) => {
               key={index}
               name={input}
               type="text"
-              title=""
+              title={input}
               placeholder={input}
               value={user[input]}
               user={user}

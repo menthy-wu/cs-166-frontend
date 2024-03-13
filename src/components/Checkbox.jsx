@@ -20,9 +20,7 @@ const Checkbox = ({
       >
         <BsCheckLg
           data-cy="checkmark"
-          className={`${
-            toggle ? "text-white" : "text-gray-200"
-          } text-lg text-white`}
+          className={`${toggle ? "text-white" : "text-gray-200"} text-lg`}
         />
       </div>
       {text && <p className="my-0 pt-0">{text}</p>}

@@ -7,6 +7,7 @@ import { useContext } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import UserContext from "@/components/UserContext";
+import Link from "next/link";
 
 const page = () => {
   const router = useRouter();
@@ -97,6 +98,9 @@ const page = () => {
           />
           <Button onClick={register} text="SUBMIT" color="white" />
         </form>
+        <Link href="/" className="text-tm-gray w-full text-center">
+          back to login
+        </Link>
       </div>
     </div>
   );

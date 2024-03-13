@@ -24,7 +24,7 @@ const Login = () => {
       .then((res) => {
         if (res.message) {
           setUser(res.message);
-          router.push("/store");
+          router.push("/table/store");
         } else {
           toast("❌ Invalid username or password");
         }

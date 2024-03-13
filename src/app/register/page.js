@@ -36,7 +36,7 @@ const page = () => {
       })
       .then((res) => {
         setUser({ ...user, type: "customer" });
-        router.push("/store");
+        router.push("/table/store");
       })
       .catch((err) => {
         toast("❌ internal server error " + err.message);

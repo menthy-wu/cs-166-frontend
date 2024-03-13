@@ -20,6 +20,7 @@ const Navigation = () => {
           onClick={() => setExpand(!expand)}
         >
           <Image src={LOGO} className="w-10 h-10 mx-2" alt={`Logo`} />
+          <div className="text-white text-xl font-bold">{user.type}</div>
           <div className="text-white text-xl font-semibold">
             {pathName.split("/")[2]}
           </div>
@@ -31,8 +32,9 @@ const Navigation = () => {
         }`}
       >
         <div className="bg-gradient-to-b from-tm-purple to-tm-blue flex flex-col justify-between items-center">
-          <div className="hidden lg:flex items-center my-3">
+          <div className="hidden lg:flex flex-col justify-center items-center my-3">
             <Image src={LOGO} className="w-10 h-10 mx-2" alt={` Logo`} />
+            <div className="text-white text-xl font-bold">{user.type}</div>
           </div>
           <div className=" flex flex-col justify-start items-center">
             {TABS.map(

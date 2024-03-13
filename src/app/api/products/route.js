@@ -12,7 +12,7 @@ export async function POST(req) {
   try {
     const client = await pool.connect();
     const response = await client.query(
-      `SELECT productName, numberOfUnits, pricePerUnit FROM Product WHERE storeID = ${storeid};`
+      `SELECT storeid, productName, numberOfUnits, pricePerUnit FROM Product WHERE storeid = ${storeid};`
     );
     const products = response.rows;
     return NextResponse.json({ message: products }, { status: 200 });

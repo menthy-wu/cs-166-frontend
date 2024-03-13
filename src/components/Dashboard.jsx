@@ -13,6 +13,7 @@ import { INPUTS } from "@/data/inputs.js";
 import Input from "./Input.jsx";
 import UserContext from "./UserContext.jsx";
 import Button from "./Button.jsx";
+import toast from "react-hot-toast";
 
 const Dashboard = ({ title, columns, page, tags, Dropdown, empty }) => {
   const [data, setData] = useState([]);
@@ -21,22 +22,32 @@ const Dashboard = ({ title, columns, page, tags, Dropdown, empty }) => {
   const [filters, setFilters] = useState([]);
   const { user, setUser } = useContext(UserContext);
   const handleReload = async () => {
-    fetch("/api/" + page, {
-      method: "POST",
-      body: JSON.stringify(user),
-    })
-      .then((response) => response.json())
-      .then((res) => {
-        if (res.message) {
-          setData(res.message);
-        } else {
-          setData([]);
-        }
+    let ready = true;
+    INPUTS[page].map((input) => {
+      if (!user[input]) {
+        toast("Please fill all the fields");
+        ready = false;
+        return;
+      }
+    });
+    if (ready)
+      fetch("/api/" + page, {
+        method: "POST",
+        body: JSON.stringify(user),
       })
-      .catch((err) => {
-        console.log(err.message);
-        setData([]);
-      });
+        .then((response) => response.json())
+        .then((res) => {
+          if (res.message) {
+            console.log(res.message);
+            setData(res.message);
+          } else {
+            setData([]);
+          }
+        })
+        .catch((err) => {
+          console.log(err.message);
+          setData([]);
+        });
   };
   useEffect(() => {
     handleReload();

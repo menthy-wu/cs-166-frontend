@@ -28,12 +28,6 @@ export const COLUMNS = {
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },
     {
-      accessorKey: "name",
-      header: "name",
-      width: "w-3/12",
-      cell: ({ getValue }) => <div>{getValue()}</div>,
-    },
-    {
       accessorKey: "latitude",
       header: "latitude",
       width: "w-1/12",

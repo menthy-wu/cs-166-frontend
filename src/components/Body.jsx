@@ -4,14 +4,7 @@ import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import Button from "./Button";
 
-const Body = ({
-  getIsSelected,
-  getVisibleCells,
-  Dropdown,
-  original,
-  action,
-  actionText,
-}) => {
+const Body = ({ getIsSelected, getVisibleCells, Dropdown, original }) => {
   const [dropdown, setDropdown] = useState(false);
 
   return (
@@ -31,11 +24,6 @@ const Body = ({
             {flexRender(column.columnDef.cell, getContext())}
           </div>
         ))}
-        {/* {action && (
-          <div className="w-1/8">
-            <Button onClick={action} text={actionText} color="black" />
-          </div>
-        )} */}
         {Dropdown && (
           <FaChevronDown
             className={`${

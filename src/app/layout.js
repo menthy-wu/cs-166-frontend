@@ -15,10 +15,12 @@ const poppins = Poppins({
 
 export default function RootLayout({ children, session }) {
   const [user, setUser] = useState({
+    userid: 3,
     name: "",
     password: "",
-    latitude: "",
-    longitude: "",
+    latitude: "94.771430",
+    longitude: "25.580180",
+    type: "customer",
   });
 
   return (

@@ -20,7 +20,7 @@ export const COLUMNS = {
   store: [
     generateSelect(),
     {
-      accessorKey: "storeID",
+      accessorKey: "storeid",
       header: "storeID",
       width: " w-1/6",
       enableColumnFilter: true,
@@ -46,13 +46,13 @@ export const COLUMNS = {
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },
     {
-      accessorKey: "manager",
+      accessorKey: "managerid",
       header: "manager",
       width: "w-1/12",
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },
     {
-      accessorKey: "dateEstablished",
+      accessorKey: "dateestablished",
       header: "dateEstablished",
       width: "w-1/12",
       cell: ({ getValue }) => <div>{getValue()}</div>,
@@ -61,7 +61,7 @@ export const COLUMNS = {
   products: [
     generateSelect(),
     {
-      accessorKey: "storeID",
+      accessorKey: "storeid",
       header: "storeID",
       width: " w-1/6",
       enableColumnFilter: true,
@@ -69,20 +69,20 @@ export const COLUMNS = {
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },
     {
-      accessorKey: "productName",
-      header: "productName",
+      accessorKey: "productname",
+      header: "product Name",
       width: "w-3/12",
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },
     {
-      accessorKey: "numberOfUnits",
+      accessorKey: "numberofunits",
       header: "numberOfUnits",
       width: "w-1/12",
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },
     {
-      accessorKey: "pricePerUnit",
-      header: "pricePerUnit",
+      accessorKey: "priceperunit",
+      header: "price Per Unit",
       width: "w-1/12",
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },
@@ -90,22 +90,42 @@ export const COLUMNS = {
   myorder: [
     generateSelect(),
     {
-      accessorKey: "storeID",
-      header: "storeID",
+      accessorKey: "customerid",
+      header: "customerid",
       width: " w-1/6",
       enableColumnFilter: true,
       filterFn: "includesString",
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },
     {
-      accessorKey: "productName",
-      header: "productName",
+      accessorKey: "ordernumber",
+      header: "ordernumber",
+      width: " w-1/6",
+      enableColumnFilter: true,
+      filterFn: "includesString",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "storeid",
+      header: "storeid",
       width: "w-3/12",
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },
     {
-      accessorKey: "numberOfUnits",
-      header: "numberOfUnits",
+      accessorKey: "productname",
+      header: "productname",
+      width: "w-1/12",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "unitsordered",
+      header: "unitsordered",
+      width: "w-1/12",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "ordertime",
+      header: "ordertime",
       width: "w-1/12",
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },

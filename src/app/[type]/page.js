@@ -1,7 +1,5 @@
 "use client";
 import Dashboard from "@/components/Dashboard";
-import Table from "@/components/Table";
-import { ACTIONS } from "@/data/actions";
 import { COLUMNS } from "@/data/columns";
 import Fault from "@/util/error.js";
 
@@ -11,7 +9,6 @@ const Page = ({ params }) => {
     products: { something: "" },
     myorder: { something: "" },
   };
-  console.log(ACTIONS[params.type].action);
 
   if (components.hasOwnProperty(params.type)) {
     return (
@@ -20,8 +17,6 @@ const Page = ({ params }) => {
           title={params.type}
           columns={COLUMNS[params.type]}
           page={params.type}
-          action={ACTIONS[params.type].action}
-          actionText={ACTIONS[params.type].text}
           empty={`no ${params.type}`}
         />
       </div>

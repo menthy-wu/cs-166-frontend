@@ -35,7 +35,6 @@ const page = () => {
         response.json();
       })
       .then((res) => {
-        console.log(res);
         setUser({ ...user, type: "customer" });
         router.push("/store");
       })

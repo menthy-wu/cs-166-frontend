@@ -21,12 +21,10 @@ const Table = ({
   Dropdown,
   empty,
   loading,
-  action,
-  actionText,
 }) => {
   return (
     <>
-      <div className="bg-white h-[85vh] overflow-y-scroll flex flex-col justify-between rounded-lg drop-shadow-[20px_15px_35px_rgba(0,0,0,0.25)]">
+      <div className="bg-white overflow-y-scroll flex flex-col justify-between rounded-lg drop-shadow-[20px_15px_35px_rgba(0,0,0,0.25)]">
         <div>
           <div className="text-white bg-gradient-to-r from-tm-purple to-tm-blue rounded-t-lg flex justify-between">
             {getHeaderGroups().map(({ headers, id }) => (
@@ -78,8 +76,6 @@ const Table = ({
                       getVisibleCells={getVisibleCells}
                       Dropdown={Dropdown}
                       original={original}
-                      action={action}
-                      actionText={actionText}
                     />
                   )
                 )}

@@ -6,27 +6,41 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { useState } from "react";
-import Toolbar from "./Toolbar.jsx";
+import { useContext, useEffect, useState } from "react";
 import Table from "./Table.jsx";
 import Navigation from "./Navigation.jsx";
+import { INPUTS } from "@/data/inputs.js";
+import Input from "./Input.jsx";
+import UserContext from "./UserContext.jsx";
+import Button from "./Button.jsx";
 
-const Dashboard = ({
-  title,
-  columns,
-  page,
-  tags,
-  statuses,
-  Dropdown,
-  empty,
-  action,
-  actionText,
-}) => {
+const Dashboard = ({ title, columns, page, tags, Dropdown, empty }) => {
   const [data, setData] = useState([]);
   const [selected, setSelected] = useState([]);
   const [loading, setLoading] = useState(false);
   const [filters, setFilters] = useState([]);
-
+  const { user, setUser } = useContext(UserContext);
+  const handleReload = async () => {
+    fetch("/api/" + page, {
+      method: "POST",
+      body: JSON.stringify(user),
+    })
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.message) {
+          setData(res.message);
+        } else {
+          setData([]);
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setData([]);
+      });
+  };
+  useEffect(() => {
+    handleReload();
+  }, INPUTS[page]);
   const {
     getHeaderGroups,
     getRowModel,
@@ -62,17 +76,23 @@ const Dashboard = ({
           <div className="flex items-center my-2 text-4xl font-bold bg-gradient-to-r from-tm-purple to-blue-400 bg-clip-text text-transparent w-fit">
             {title}
           </div>
-          <Toolbar
-            page={page}
-            filters={filters}
-            setFilters={setFilters}
-            data={data}
-            setData={setData}
-            tags={tags}
-            getFilteredSelectedRowModel={getFilteredSelectedRowModel}
-            toggleAllRowsSelected={toggleAllRowsSelected}
-            setLoading={setLoading}
-          />
+          {INPUTS[page].map((input, index) => (
+            <Input
+              key={index}
+              name={input}
+              type="text"
+              title=""
+              placeholder={input}
+              value={user[input]}
+              user={user}
+              setUser={setUser}
+              maxLength={100}
+            />
+          ))}
+          {INPUTS[page]?.length > 0 && (
+            <Button onClick={handleReload} text="submit" color="black" />
+          )}
+          <div className="h-5" />
           <Table
             getHeaderGroups={getHeaderGroups}
             getRowModel={getRowModel}
@@ -85,8 +105,6 @@ const Dashboard = ({
             Dropdown={Dropdown}
             empty={empty}
             loading={loading}
-            action={action}
-            actionText={actionText}
           />
         </div>
       </div>

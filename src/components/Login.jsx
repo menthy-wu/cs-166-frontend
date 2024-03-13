@@ -22,7 +22,6 @@ const Login = () => {
     })
       .then((response) => response.json())
       .then((res) => {
-        console.log(res.message);
         if (res.message) {
           setUser(res.message);
           router.push("/store");

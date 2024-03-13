@@ -1,26 +1,45 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import Input from "./Input";
 import Button from "./Button";
 import { useState } from "react";
+import UserContext from "./UserContext";
 
 const Order = () => {
+  const { user } = useContext(UserContext);
   const [orderdata, setOrderdata] = useState({
-    storeID: "",
+    storeid: "",
     productName: "",
-    numberofUnits: "",
+    numberofunits: "",
   });
   const order = () => {
-    console.log(orderdata);
+    if (!user) return;
+    if (
+      !orderdata.storeid ||
+      !orderdata.productName ||
+      !orderdata.numberofunits
+    )
+      return;
+    fetch("/api/order", {
+      method: "POST",
+      body: JSON.stringify({ ...user, ...orderdata }),
+    })
+      .then((response) => response.json())
+      .then((res) => {
+        console.log(res.message);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
 
   return (
     <div className="rounded-lg p-12 w-1/3 bg-white flex flex-col justify-center items-start h-fit gap-3 drop-shadow-[20px_15px_35px_rgba(0,0,0,0.25)]">
       <Input
-        name="storeID"
+        name="storeid"
         type="text"
-        title="storeID"
-        placeholder="storeID"
+        title="store id"
+        placeholder="storeid"
         value={orderdata.storeID}
         user={orderdata}
         setUser={setOrderdata}
@@ -37,11 +56,11 @@ const Order = () => {
         maxLength={100}
       />
       <Input
-        name="numberofUnits"
+        name="numberofunits"
         type="text"
-        title="numberofUnits"
-        placeholder="numberofUnits"
-        value={orderdata.numberofUnits}
+        title="numberofunits"
+        placeholder="numberofunits"
+        value={orderdata.numberofunits}
         user={orderdata}
         setUser={setOrderdata}
         maxLength={100}

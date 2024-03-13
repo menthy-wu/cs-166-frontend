@@ -12,8 +12,6 @@ const Navigation = () => {
   const { user, setUser } = useContext(UserContext);
   const [expand, setExpand] = useState(false);
   const pathName = usePathname();
-  const [tabs, setTabs] = useState("user");
-  console.log(user);
   return (
     <>
       <div className="flex lg:hidden w-full bg-gradient-to-b from-tm-purple to-tm-blue h-12 items-center fixed z-20">

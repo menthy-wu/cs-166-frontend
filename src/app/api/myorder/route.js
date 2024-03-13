@@ -12,7 +12,7 @@ export async function POST(req) {
     const response = await client.query(
       `SELECT * FROM Orders WHERE customerID = '${userid}' ORDER BY orderTime DESC LIMIT 5;`
     );
-    console.log(response.rows);
+    // console.log(response.rows);
     return NextResponse.json({ message: response.rows }, { status: 200 });
   } catch (err) {
     return NextResponse.json({ message: err.message }, { status: 500 });

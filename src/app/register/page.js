@@ -11,7 +11,8 @@ import UserContext from "@/components/UserContext";
 const page = () => {
   const router = useRouter();
   const { user, setUser } = useContext(UserContext);
-  const register = () => {
+  const register = (e) => {
+    e.preventDefault();
     if (!user.name || !user.password || !user.latitude || !user.longitude) {
       toast("❌ Please fill in all fields");
       return;
@@ -53,47 +54,49 @@ const page = () => {
           <div className="text-4xl font-light">REGISTER</div>
           <div className="text-base text-tm-gray">Theo & Menthy Inst. </div>
         </div>
-        <Input
-          name="name"
-          type="text"
-          title="name"
-          placeholder="name"
-          value={user.name}
-          user={user}
-          setUser={setUser}
-          maxLength={100}
-        />
-        <Input
-          name="password"
-          type="text"
-          title="password"
-          placeholder="password"
-          value={user.password}
-          user={user}
-          setUser={setUser}
-          maxLength={100}
-        />
-        <Input
-          name="latitude"
-          type="text"
-          title="latitude"
-          placeholder="latitude"
-          value={user.latitude}
-          user={user}
-          setUser={setUser}
-          maxLength={100}
-        />
-        <Input
-          name="longitude"
-          type="text"
-          title="longitude"
-          placeholder="longitude"
-          value={user.longitude}
-          user={user}
-          setUser={setUser}
-          maxLength={100}
-        />
-        <Button onClick={register} text="SUBMIT" color="white" />
+        <form className="w-full">
+          <Input
+            name="name"
+            type="text"
+            title="name"
+            placeholder="name"
+            value={user.name}
+            user={user}
+            setUser={setUser}
+            maxLength={100}
+          />
+          <Input
+            name="password"
+            type="text"
+            title="password"
+            placeholder="password"
+            value={user.password}
+            user={user}
+            setUser={setUser}
+            maxLength={100}
+          />
+          <Input
+            name="latitude"
+            type="text"
+            title="latitude"
+            placeholder="latitude"
+            value={user.latitude}
+            user={user}
+            setUser={setUser}
+            maxLength={100}
+          />
+          <Input
+            name="longitude"
+            type="text"
+            title="longitude"
+            placeholder="longitude"
+            value={user.longitude}
+            user={user}
+            setUser={setUser}
+            maxLength={100}
+          />
+          <Button onClick={register} text="SUBMIT" color="white" />
+        </form>
       </div>
     </div>
   );

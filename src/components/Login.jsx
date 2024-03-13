@@ -12,7 +12,8 @@ import toast from "react-hot-toast";
 const Login = () => {
   const { user, setUser } = useContext(UserContext);
   const router = useRouter();
-  const login = () => {
+  const login = (e) => {
+    e.preventDefault();
     fetch("/api/login", {
       method: "POST",
       body: JSON.stringify({
@@ -41,27 +42,29 @@ const Login = () => {
           <div className="text-4xl font-light">LOGIN</div>
           <div className="text-base text-tm-gray">Theo & Menthy Inst. </div>
         </div>
-        <Input
-          name="name"
-          type="text"
-          title="name"
-          placeholder="name"
-          value={user.name}
-          user={user}
-          setUser={setUser}
-          maxLength={100}
-        />
-        <Input
-          name="password"
-          type="text"
-          title="password"
-          placeholder="password"
-          value={user.password}
-          user={user}
-          setUser={setUser}
-          maxLength={100}
-        />
-        <Button onClick={login} text="SUBMIT" color="white" />
+        <form onSubmit={login} className="w-full">
+          <Input
+            name="name"
+            type="text"
+            title="name"
+            placeholder="name"
+            value={user.name}
+            user={user}
+            setUser={setUser}
+            maxLength={100}
+          />
+          <Input
+            name="password"
+            type="text"
+            title="password"
+            placeholder="password"
+            value={user.password}
+            user={user}
+            setUser={setUser}
+            maxLength={100}
+          />
+          <Button onClick={login} text="SUBMIT" color="white" />
+        </form>
         <Link href="/register" className="text-tm-gray w-full text-center">
           register as new user
         </Link>

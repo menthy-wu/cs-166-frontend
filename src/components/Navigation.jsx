@@ -30,32 +30,35 @@ const Navigation = () => {
           expand ? "left-0  w-1/2 fixed pt-5" : `hidden`
         }`}
       >
-        <div className="bg-gradient-to-b from-tm-purple to-tm-blue flex flex-col justify-start items-center">
+        <div className="bg-gradient-to-b from-tm-purple to-tm-blue flex flex-col justify-between items-center">
           <div className="hidden lg:flex items-center my-3">
             <Image src={LOGO} className="w-10 h-10 mx-2" alt={` Logo`} />
           </div>
-          {TABS.map(
-            (tab, index) =>
-              tab.type.includes(user.type) && (
-                <Link
-                  key={index}
-                  href={tab.link}
-                  className="no-underline p-0 w-full"
-                >
-                  <div
-                    onClick={() => setExpand(false)}
-                    className={`w-full flex [&>*]:text-white items-center justify-start py-1 pl-[10%] ${
-                      pathName.endsWith(tab.link)
-                        ? "bg-black"
-                        : "[&>*]:hover:text-black"
-                    }`}
+          <div className=" flex flex-col justify-start items-center">
+            {TABS.map(
+              (tab, index) =>
+                tab.type.includes(user.type) && (
+                  <Link
+                    key={index}
+                    href={tab.link}
+                    className="no-underline p-0 w-full"
                   >
-                    {tab.icon}
-                    <p className="text-lg m-0">{tab.name}</p>
-                  </div>
-                </Link>
-              )
-          )}
+                    <div
+                      onClick={() => setExpand(false)}
+                      className={`w-full flex [&>*]:text-white items-center justify-start py-1 pl-[10%] ${
+                        pathName.endsWith(tab.link)
+                          ? "bg-black"
+                          : "[&>*]:hover:text-black"
+                      }`}
+                    >
+                      {tab.icon}
+                      <p className="text-lg m-0">{tab.name}</p>
+                    </div>
+                  </Link>
+                )
+            )}
+          </div>
+          <Link href="/">LOG OUT</Link>
         </div>
       </div>
     </>

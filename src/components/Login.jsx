@@ -55,7 +55,7 @@ const Login = () => {
           />
           <Input
             name="password"
-            type="text"
+            type="password"
             title="password"
             placeholder="password"
             value={user.password}

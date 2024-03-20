@@ -167,4 +167,118 @@ export const COLUMNS = {
       cell: ({ getValue }) => <div>{getValue()}</div>,
     },
   ],
+  updates: [
+    generateSelect(),
+    {
+      accessorKey: "updatenumber",
+      header: "update number",
+      width: " w-1/6",
+      enableColumnFilter: true,
+      filterFn: "includesString",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "managerid",
+      header: "manager id",
+      width: " w-1/6",
+      enableColumnFilter: true,
+      filterFn: "includesString",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "storeid",
+      header: "storeid",
+      width: " w-1/6",
+      enableColumnFilter: true,
+      filterFn: "includesString",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "productname",
+      header: "Product Name",
+      width: "w-3/12",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "updatedon",
+      header: "Update Time",
+      width: "w-3/12",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+  ],
+  "popular-items": [
+    generateSelect(),
+
+    {
+      accessorKey: "productname",
+      header: "product Name",
+      width: "w-3/12",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "sum",
+      header: "sum",
+      width: "w-1/12",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+  ],
+  "popular-customers": [
+    generateSelect(),
+
+    {
+      accessorKey: "customerid",
+      header: "customer",
+      width: "w-3/12",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "count",
+      header: "count",
+      width: "w-1/12",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+  ],
+  "all-order": [
+    generateSelect(),
+    {
+      accessorKey: "name",
+      header: "customer name",
+      width: " w-1/6",
+      enableColumnFilter: true,
+      filterFn: "includesString",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "ordernumber",
+      header: "ordernumber",
+      width: " w-1/6",
+      enableColumnFilter: true,
+      filterFn: "includesString",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "storeid",
+      header: "storeid",
+      width: "w-3/12",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "productname",
+      header: "productname",
+      width: "w-1/12",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "unitsordered",
+      header: "unitsordered",
+      width: "w-1/12",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+    {
+      accessorKey: "ordertime",
+      header: "ordertime",
+      width: "w-1/12",
+      cell: ({ getValue }) => <div>{getValue()}</div>,
+    },
+  ],
 };

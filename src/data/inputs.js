@@ -13,4 +13,9 @@ export const INPUTS = {
     "updateLongitude",
   ],
   "delete-users": ["deleteUserid"],
+  updates: ["storeid"],
+  "popular-items": ["storeid"],
+  "popular-customers": ["storeid"],
+  request: ["storeid", "productName", "numberofunits", "warehouseid"],
+  "all-order": [],
 };
